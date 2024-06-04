@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tostbox{
+            position: absolute;
+            bottom:30px;
+            right: 30px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            flex-direction: column;
+           gap: 5px;
+            padding: 20px;
+        }
+        .tost{
+            width: 100px;
+            height: 30px;
+            background:linear-gradient(rgb(123, 185, 7),rgb(18, 169, 69));
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="button">
+        <button onclick="showtost('sucess')">sucess</button>
+        <button onclick="showtost('error')">error</button>
+        <button onclick="showtost('invalid')">invalid</button>
+    </div>
+    <div class="tostbox"></div>
+    <script>
+        let toastbox=document.querySelector('.tostbox');
+        function showtost(meg){
+            let tost=document.createElement('div');
+            tost.classList.add('tost');
+            tost.innerText=meg;
+            toastbox.appendChild(tost);
+           
+            setInterval(()=>{
+                tost.remove();
+            },400)
+
+        }
+    </script>
+</body>
+</html>
